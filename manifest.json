@@ -1,0 +1,36 @@
+{
+
+    "manifest_version": 2,
+    "name": "StarsBegone",
+    "version": "1.0",
+
+    "developer": {
+        "name": "hazrmard",
+        "url": "https://github.com/hazrmard"
+    },
+  
+    "description": "Toggle display of member-only posts on Medium.com",
+  
+    "icons": {
+        "48": "icons/enabled.png"
+      },
+    
+    "page_action": {
+        "default_icon": "icons/enabled.png",
+        "default_title": "Medium stars: blocked",
+        "show_matches": ["*://*.medium.com/*"]
+    },
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["*://*.medium.com/*"],
+        "js": ["front.js"]
+      }
+    ],
+
+    "permissions": ["activeTab"]  
+  }
