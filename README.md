@@ -21,6 +21,8 @@ is lost.
 
 Click the extension icon in the address bar to toggle blocking of posts.
 
+![demo](demo.gif)
+
 ## About
 
 This is my first ever browser extension. I consulted the [WebExtensions Docs][2]

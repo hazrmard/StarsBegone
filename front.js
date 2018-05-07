@@ -43,6 +43,7 @@ function setStars(status) {
 // toggle visibility if icon clicked
 browser.runtime.onMessage.addListener((state) => {
     visibility = state;
+    console.log(visibility);
     setStars(visibility)
 });
 

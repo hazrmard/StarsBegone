@@ -11,23 +11,23 @@ var visibility = {};
 // event listener for whenever the extension icon is clicked. Toggles visibility
 // logic. Communicates it to front-end script that modifies the DOM.
 browser.pageAction.onClicked.addListener(function(tab) {
-    visibility = !visibility;
-    browser.tabs.sendMessage(tab.id, visibility);
+    visibility[tab.id] = !visibility[tab.id] | false;
+    browser.tabs.sendMessage(tab.id, visibility[tab.id]);
 
     browser.pageAction.setIcon({
         tabId: tab.id,
-        path: visibility ? "icons/disabled.png" : "icons/enabled.png"
+        path: visibility[tab.id] ? "icons/disabled.png" : "icons/enabled.png"
       });
     
     browser.pageAction.setTitle({
         tabId: tab.id,
-        title: visibility ? "Medium stars: unblocked" : "Medium stars: blocked"
+        title: visibility[tab.id] ? "Medium stars: unblocked" : "Medium stars: blocked"
     });
 });
 
 
 // event listener for query messages from tabs. Returns current visibility state.
 browser.runtime.onMessage.addListener(function (msg, sender) {
-    visibility[sender.tab.id] == undefined | visibility[sender.tab.id]
-    browser.tabs.sendMessage(sender.tab.id, visibility);
+    visibility[sender.tab.id] = visibility[sender.tab.id] | false;
+    browser.tabs.sendMessage(sender.tab.id, visibility[sender.tab.id]);
 })
