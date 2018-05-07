@@ -1,5 +1,7 @@
 # StarsBegone
 
+**[Install it on firefox][3]**
+
 Toggle display of *"Member"* posts on [medium.com][1].
 
 Ever see a Medium article with a ~~clickbait~~ gripping headline? But then you
@@ -31,3 +33,4 @@ for development.
 
 [1]: https://medium.com
 [2]: https://developer.mozilla.org/en-US/Add-ons
+[3]: https://addons.mozilla.org/en-US/firefox/addon/starsbegone/
